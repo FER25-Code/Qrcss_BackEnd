@@ -30,7 +30,7 @@ public class ProductController {
     private ProductServices service;
 
     @PostMapping("/setproduct")
-    public void SetUser(@RequestBody Product product){
+    public void SetProduct(@RequestBody Product product){
         try {
             productData.insert(product);
         }catch (Exception e){
@@ -51,16 +51,13 @@ public class ProductController {
         return   productData.delete(id);
     }
 
-    @PostMapping("/updataproduct")
-    public int updataUser(@RequestBody Product product ){
-        System.out.println("hiiiiiiii");
-        return   productData.UpdataProduct(product);
-    }
-
-    @PutMapping("/updata")
-    public int updatap(@RequestBody Product product ){
-        System.out.println("hiiiiiiii");
-        return   productData.UpdataProduct(product);
+    @PostMapping("/updateproduct")
+    public void updateProduct(@RequestBody Product product ){
+        try {
+         productData.UpdataProduct(product);
+        }catch (Exception e){
+            System.out.println("no Update");
+        }
     }
 
 

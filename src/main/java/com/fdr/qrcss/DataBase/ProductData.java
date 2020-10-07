@@ -23,9 +23,9 @@ public class ProductData {
 
     public int insert(Product product) {
 
-        return jdbcTemplate.update("insert into product (num,name,mark )"+" values (?,?,?)",
+        return jdbcTemplate.update("insert into product (mark,name,num,price,quantity )"+" values (?,?,?,?,?)",
 
-                new Object[]{product.getNum(), product.getName(), product.getMark()}
+                new Object[]{product.getMark(), product.getName(),product.getNum(),product.getPrice(),product.getQuantity() }
         );
     }
 
@@ -59,7 +59,7 @@ public class ProductData {
     public int UpdataProduct (Product product )
     {
         return jdbcTemplate.update("update product set quantity = ? where id =?",
-                new Object []{product.getId(),product.getQuantity()});
+                new Object []{product.getQuantity(),product.getId()});
     }
 }
 
